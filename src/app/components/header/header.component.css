@@ -1,0 +1,6 @@
+:host ::ng-deep input.searchfield {
+  border-radius: 10px !important;
+  height: 30px !important;
+}
+
+

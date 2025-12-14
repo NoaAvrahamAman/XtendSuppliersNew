@@ -1,0 +1,18 @@
+<div class="row top-padding" style="text-align: end">
+  <label for="select-themes">{{content.themeSettingsLabel}}</label>
+  <select id="select-themes" soho-dropdown [(ngModel)]="themeSelected" (ngModelChange)="onSelectionThemeChange($event)">
+    <option *ngFor="let theme of themeOptions" [ngValue]="theme" [attr.data-init]="">
+      {{ theme.name }}
+    </option>
+  </select>
+  <label for="select-colors">{{content.colorSettingsLabel}}</label>
+  <select id="select-colors" soho-dropdown [(ngModel)]="colorSelected" (ngModelChange)="onSelectionColorChange($event)">
+    <option *ngFor="let color of colorOptions" [ngValue]="color" [attr.data-init]="">
+      <svg [class]="'listoption-icon icon swatch ' + color.backgroundColorClass">
+        <use href="#icon-swatch"></use>
+      </svg>
+      {{ color.name }}
+    </option>
+  </select>
+</div>
+

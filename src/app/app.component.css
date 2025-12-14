@@ -1,0 +1,70 @@
+/* Soho Accordion customization */
+::ng-deep .accordion .accordion-header {
+  border: none !important;
+  box-shadow: none !important;
+  text-align: end;
+}
+
+/*soho Labels*/
+.labelDetails{
+   display: inline-block;
+   min-width: 150px;
+
+}
+
+.shortLookup{
+   width: 80px
+}
+
+
+
+app-options-list{
+   height: calc(100% - 60px);
+}
+
+/* Soho Lookup customization */
+/* ::ng-deep .lookup-wrapper .input_lookup {
+  width: 100px;
+  font-size: 1.5rem;
+}
+
+::ng-deep .lookup-wrapper .input_lookup,
+::ng-deep .lookup-wrapper .trigger {
+  height: 27px;
+  line-height: 27px;
+  margin-top: 0 !important;
+}
+
+::ng-deep .lookup-wrapper .trigger .icon {
+  height: 16px;
+  width: 16px;
+}
+
+::ng-deep.lookup-modal .pager-first,
+::ng-deep.lookup-modal .pager-last,
+::ng-deep.lookup-modal .btn-menu.btn-filter {
+  display: none !important;
+}
+
+::ng-deep.lookup-modal .pager-toolbar{
+  text-align: end !important;
+} */
+
+/* Soho Datepicker customization */
+::ng-deep .datepicker,
+::ng-deep .input_datepicker + .trigger {
+  height: 27px !important;
+  line-height: 27px !important;
+  margin-top: 0 !important;
+}
+
+::ng-deep input .datepicker .input_datepicker {
+  height: 27px;
+  line-height: 27px;
+  margin-top: 0 !important;
+}
+
+::ng-deep .input_datepicker + .trigger .icon {
+  height: 16px !important;
+  width: 16px !important;
+}

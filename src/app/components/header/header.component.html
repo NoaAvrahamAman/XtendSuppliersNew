@@ -1,0 +1,75 @@
+<soho-header>
+  <soho-toolbar-flex>
+    <soho-toolbar-flex-section>
+      <button disabled type="button" class="btn-icon">
+        <svg soho-icon icon="menu"></svg>
+      </button>
+    </soho-toolbar-flex-section>
+
+    <soho-toolbar-flex-section [isButtonSet]="true">
+      <button [attr.disabled]="!component ||component===EComponent.SETTINGS ? true : null" soho-menu-button
+              [menu]="'actions_menu'">
+        {{ content.headerActionBtn }}
+      </button>
+      <button [attr.disabled]="!component || component===EComponent.SETTINGS ? true : null" soho-menu-button
+              [menu]="'options_menu'">
+        {{ content.headerOptionBtn }}
+      </button>
+      <ul soho-popupmenu id="actions_menu">
+        <li *ngFor="let item of content.headerActionsMenuItems"
+            [ngClass]="item.separator ? 'separator' : '' || checkActionDisabled(item.index) ? null : 'disabled'"
+            (click)="handleActionsClick(item.index, checkActionDisabled(item.index))">
+          <a *ngIf="!item.separator">
+            <span class="item-text">{{ item.text }}</span>
+            <span class="shortcut-text">{{ item.shortcut }}</span>
+          </a>
+        </li>
+      </ul>
+      <ul soho-popupmenu id="options_menu">
+        <li *ngFor="let item of content.headerOptionsMenuItems"
+            (click)="handleOptionsClick(item.index, checkOptionDisabled(item.index))"
+            [ngClass]="checkOptionDisabled(item.index) ? null : 'disabled'">
+          <a>
+            <span class="item-text">{{ item.text }}</span>
+            <span class="shortcut-text">{{ item.shortcut }}</span>
+          </a>
+        </li>
+      </ul>
+    </soho-toolbar-flex-section>
+
+    <soho-toolbar-flex>
+      <button class="btn-menu has-text no-ripple hide-focus" disabled tabindex="-1">
+        <span>
+          {{ companyDivisionInfo }}
+        </span>
+      </button>
+    </soho-toolbar-flex>
+
+    <soho-toolbar-flex-section [isSearch]="true">
+      <input #searchField soho-searchfield [placeholder]="content.headerSearch" [clearable]="true"
+             (change)="handleSearchChange($event)"/>
+    </soho-toolbar-flex-section>
+
+    <soho-toolbar-flex-section [isButtonSet]="true">
+      <button class="btn-icon" (click)="handleShareClick()">
+        <svg soho-icon icon="share"></svg>
+      </button>
+      <button disabled class="btn-icon" (click)="handleEditClick()">
+        <svg soho-icon icon="edit"></svg>
+      </button>
+
+      <button class="btn-icon" (click)="handleRefreshClick()">
+        <svg soho-icon icon="refresh"></svg>
+      </button>
+      <button class="btn-icon" (click)="handleHelpClick()">
+        <svg soho-icon icon="help"></svg>
+      </button>
+      <button class="btn-icon" (click)="handleSettingsClick()">
+        <svg soho-icon [icon]="component==='SETTINGS' ? 'arrow-left' : 'settings'"></svg>
+      </button>
+      <button disabled class="btn-icon" (click)="handleMenuClick()">
+        <svg soho-icon icon="menu"></svg>
+      </button>
+    </soho-toolbar-flex-section>
+  </soho-toolbar-flex>
+</soho-header>

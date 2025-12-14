@@ -1,0 +1,197 @@
+<div class="main_option">
+   <div class="body">
+      <div class="body_required">
+         <div class="row top-padding">
+            <div class="twelve columns">
+               <ng-container *ngFor="let fieldObj of formFields?.required">
+                  <!-- INPUT -->
+                  <div class="field-short">
+                     <label soho-label [for]="'input_' + fieldObj.field"
+                        [ngClass]="isHebrew ? 'labelHeaderHE' : 'labelHeaderGB'">
+                        {{ fieldObj.label }}
+                     </label>
+
+                     <input soho-input [id]="'input_' + fieldObj.field" [name]="'input_' + fieldObj.field" type="text"
+                        maxlength="10" [(ngModel)]="selectedRowData[fieldObj.field]" [readonly]="fieldObj.readonly" />
+
+                     <label [ngClass]="isHebrew ? 'displayLablesHE' : 'displayLablesGB'" soho-label>{{ fieldObj.desc }}</label>
+                  </div>
+               </ng-container>
+            </div>
+         </div>
+      </div>
+      <hr class="divider">
+      <div class="body_secondary">
+         <form id="formDetails" class="form-layout-compact">
+            <div class="row top-padding">
+               <div class="twelve columns">
+                  <ng-container *ngFor="let fieldObj of formFields?.secondary?.firstSection">
+                     <!-- INPUT -->
+                     <div class="field-short" *ngIf="fieldObj.type === 'input'">
+                        <label soho-label [for]="'input_' + fieldObj.field"
+                           [ngClass]="isHebrew ? 'labelHeaderHE' : 'labelHeaderGB'">
+                           {{ fieldObj.label }}
+                        </label>
+
+                        <input soho-input [id]="'input_' + fieldObj.field" [name]="'input_' + fieldObj.field"
+                           type="text" maxlength="10" [(ngModel)]="selectedRowData[fieldObj.field]"
+                           [readonly]="fieldObj.readonly" />
+
+                        <label soho-label>{{ fieldObj.desc }}</label>
+                     </div>
+
+                     <!-- DRPODOWN -->
+                     <div class="field-short" *ngIf="fieldObj.type === 'dropdown'">
+                        <label soho-label [for]="'input_' + fieldObj.field"
+                           [ngClass]="isHebrew ? 'labelHeaderHE' : 'labelHeaderGB'">
+                           {{ fieldObj.label }}
+                        </label>
+                        <select soho-dropdown [id]="'input_' + fieldObj.field" [name]="'input_' + fieldObj.field"
+                           [(ngModel)]="selectedRowData[fieldObj.field]" style="width:182px;"
+                           [disabled]="fieldObj.readonly">
+                           <option *ngFor="let option of fieldObj.data" [value]="option.value">{{ option.name }}
+                           </option>
+                        </select>
+                     </div>
+                  </ng-container>
+               </div>
+
+            </div>
+            <div class="row top-padding">
+
+               <ng-container *ngFor="let column of formFields?.secondary?.secondSection">
+                  <div class="one-fifth column"
+                     [ngStyle]="{'margin-left':isHebrew?'0px':null,'margin-right':isHebrew?'20px':null}">
+
+                     <ng-container *ngFor="let fieldObj of column">
+                        <div *ngIf="fieldObj.type === 'checkbox'">
+                           <!-- <h3><b>{{content.deliveryDaysLabel}}</b></h3>
+                     <div class="field" style="padding-top: 10px;">
+                     </div> -->
+                           <!-- CHECKBOX -->
+                           <div class="field">
+                              <input soho-checkbox [id]="'input_' + fieldObj.field" [name]="'input_' + fieldObj.field"
+                                 [(ngModel)]="selectedRowData[fieldObj.field]" [disabled]="fieldObj.readonly"
+                                 type="checkbox" class="checkbox" />
+                              <label soho-label [for]="'input_' + fieldObj.field"
+                                 class="checkbox-label">{{fieldObj.label}}</label>
+                           </div>
+                           <div class="field" style="padding-top: 30px;">
+                           </div>
+                        </div>
+                        <!-- TIME -->
+                        <div *ngIf="fieldObj.type === 'time'">
+                           <!-- <h3><b>{{content.deliveryHoursLabel}}</b></h3> -->
+                           <div class="field">
+                              <label soho-label [for]="'input_' + fieldObj.field"
+                                 class="label">{{fieldObj.label}}</label>
+                              <input soho-timepicker [id]="'input_' + fieldObj.field" [name]="'input_' + fieldObj.field"
+                                 timeFormat="HH:mm" mode="standard" [(ngModel)]="selectedRowData[fieldObj.field]"
+                                 [readonly]="fieldObj.readonly" />
+                           </div>
+                        </div>
+                     </ng-container>
+                  </div>
+               </ng-container>
+
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="footer">
+      <div id="panelNavigator">
+         <div class="panel-navigator"><!--this class place the buttons in the rigtht side or left side in hebrew-->
+            <div class="row">
+               <div class="four columns">
+                  <!---->
+               </div>
+               <!-- <div class="four columns" style="display: flex; justify-content: center;">
+
+            <div id="browsePanel">
+               <div class="two columns">
+                  <div class="field">
+                     <input soho-radiobutton #panel_B id="panel_B" type="radio" name="radioGroup" value="B" />
+                     <label soho-label for="panel_B" [forRadioButton]="true" soho-tooltip title="B-Browse"></label>
+                  </div>
+               </div>
+            </div>
+            <div id="copyRadio" [hidden]="selectedOptionMenu != '3'">
+               <div class="two columns">
+                  <div class="field">
+                     <input soho-radiobutton #panel_C id="panel_C" type="radio" name="radioGroup" value="C"
+                        [(ngModel)]="selectedPanel" />
+                     <label soho-label for="panel_C" [forRadioButton]="true" soho-tooltip title="C-Copy"></label>
+                  </div>
+               </div>
+            </div>
+            <div id="deleteRadio" [hidden]="selectedOptionMenu != '4'">
+               <div class="two columns">
+                  <div class="field">
+                     <input soho-radiobutton #panel_D id="panel_D" type="radio" name="radioGroup" value="D"
+                        [(ngModel)]="selectedPanel" />
+                     <label soho-label for="panel_D" [forRadioButton]="true" soho-tooltip title="D-Delete"></label>
+                  </div>
+               </div>
+            </div>
+            <div id="detailsRadio1" [hidden]="selectedOptionMenu === '4'">
+               <div class="two columns">
+                  <div class="field">
+                     <input soho-radiobutton #panel_E id="panel_E" type="radio" name="radioGroup" value="E"
+                        [(ngModel)]="selectedPanel" />
+                     <label soho-label for="panel_E" [forRadioButton]="true" soho-tooltip
+                        title="E-Contact Details"></label>
+                  </div>
+               </div>
+            </div>
+
+         </div> -->
+               <div class="six columns">
+                  <!--to place the next button in the last column (12)-->
+               </div>
+               <div class="two columns buttons-group">
+                  <button soho-button="secondary" icon="chevron-left" id="btn-previous" title="PreviousPage"
+                     type="button" class="btn-secondary" (click)="goToPreviousPage()"
+                     [icon]="isHebrew ? 'chevron-right' : 'chevron-left'">
+                  </button>
+                  <button soho-button="primary" (click)="goToNextPage()" style="width:124px">{{ content.nextBtn
+                     }}</button>
+               </div>
+            </div>
+         </div>
+         <div h5-external-click="" class="message-bar">
+            <!---->
+            <div class="mbar-content">
+               <div class="mbar-message-container">
+                  <!---->
+               </div>
+               <div class="mbar-changed-by-container">
+                  <!---->
+                  <label class="mbar-changed-by mbar-label">{{messageBarDetails.changedByLabel}}</label>
+                  <label class="mbar-changed-by mbar-label"></label>
+                  <span class="mbar-spacer"></span>
+                  <!---->
+                  <!---->
+                  <label id="panel-header" class="mbar-panel-header mbar-label">{{messageBarDetails.selectedPanel}}</label>
+                  <!-- <label id="panel-header" class="mbar-panel-header mbar-label"></label> -->
+                  <span class="mbar-spacer"></span>
+                  <!---->
+                  <label class="mbar-cmpdiv-info mbar-label">{{messageBarDetails.companyDivisionInfo}}
+
+                  </label>
+                  <!---->
+               </div>
+               <div _ngcontent-ng-c182536253 class="mbar-show-history">
+                  <button _ngcontent-ng-c182536253 soho-button="icon" tabindex="-1" icon="search-results-history"
+                     title="Show Message History" type="button" class="btn-icon no-ripple hide-focus">
+                  </button>
+               </div>
+
+            </div>
+         </div>
+
+
+
+
+      </div>
+   </div>
+</div>

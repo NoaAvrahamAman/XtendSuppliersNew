@@ -1,0 +1,14 @@
+.field {
+  width: 100px;
+}
+
+.row {
+  max-width: 100%;
+}
+
+.input_datepicker {
+  width: 100px;
+  font-size: 0.8em;
+}
+
+

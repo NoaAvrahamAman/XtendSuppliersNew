@@ -1,0 +1,18 @@
+<soho-accordion #accordion>
+   <soho-accordion-header #accordionHeader>
+      <h2>Filter Options</h2>
+   </soho-accordion-header>
+   <soho-accordion-pane>
+      <div class="row">
+         <div class="full column">
+            <div class="field-short">
+               <label soho-label for="input_ZFAC" class="labelDetails"
+                  [ngStyle]="isHebrew ? {'text-align': 'right'} : {'text-align': 'left'}">{{content.lookupFilters.facility.label}}<span
+                     class="audible">[Lookup]. [PressDown]</span></label>
+               <input soho-lookup #input_ZFAC class="input_lookup" style="width: 80px" (change)="onZFACChange($event)" [(ngModel)]="filtersInputsValues.facility.val">
+               <label [ngStyle]="isHebrew ? {'text-align': 'right','margin-right' : '20px'}:{'text-align': 'left','margin-left' : '10px'}" class="displayLables">{{filtersInputsValues.facility.desc}}</label>
+            </div>
+         </div>
+      </div>
+   </soho-accordion-pane>
+</soho-accordion>

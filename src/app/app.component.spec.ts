@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'XtendSuppliersNew'`, () => {
+  it(`should have as title 'sdk-aman'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('XtendSuppliersNew');
+    expect(app.title).toEqual('sdk-aman');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('XtendSuppliersNew app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('sdk-aman app is running!');
   });
 });

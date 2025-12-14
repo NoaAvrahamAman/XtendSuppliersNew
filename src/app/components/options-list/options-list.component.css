@@ -1,0 +1,153 @@
+.row {
+   max-width: 100%;
+   margin: 0;
+}
+
+#panelNavigator {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* in scrolling there is white background */
+  /*padding: 10px 20px;*/
+  z-index: 1000; /* keeps it above other content */
+}
+
+#panelNavigator .panel-navigator {
+  display: flex;
+   justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap; /* responsive layout */
+}
+
+#panelNavigator .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#panelNavigator .columns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.message-bar .mbar-content {
+    height: 29px;
+    border-top: 1px solid #b3b3b3;
+    display: flex;
+}
+
+.message-bar .mbar-content .mbar-message-container {
+    display: flex;
+    align-items: center;
+    flex: auto;
+}
+
+.message-bar .mbar-content .mbar-changed-by-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.message-bar .mbar-label {
+    margin: 0;
+}
+
+.mbar-label {
+    font-size: 1.4rem;
+    padding-bottom: 2px;
+}
+
+.message-bar .mbar-content .mbar-changed-by-container .mbar-spacer {
+    height: 100%;
+    width: 1px;
+    border-right: 1px solid #b3b3b3;
+    margin: 0 10px;
+}
+
+.mbar-show-history {
+    margin-top: 1px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2px;
+}
+
+.main_option {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 82px);
+}
+
+.body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.body_required{
+  width: 100%;
+  height: 20%;
+}
+
+.body_secondary{
+  width: 100%;
+  height: 80%;
+}
+
+.divider {
+  margin: 0;
+}
+
+.footer {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* padding: 16px; */
+  height: 70px;
+}
+
+.labelDetailsGB, .labelHeaderGB {
+  display: inline-block;
+  min-width: 150px;
+  text-align: left !important;
+}
+
+.labelDetailsHE, .labelHeaderHE {
+  display: inline-block;
+  min-width: 150px;
+  text-align: right !important;
+}
+
+.displayLablesHE{
+   text-align: 'right';
+   margin-right : '20px'
+
+}
+
+.displayLablesGB{
+   text-align: 'left';
+   margin-left : '20px'
+
+}
+
+.buttons-group{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end; /* push all buttons to the right */
+    gap: 10px;                 /* space between buttons */
+    flex-wrap: wrap;
+}
+
+#btn-previous{
+   padding-bottom: 2px;
+   min-width:36px;
+   padding-left: 0px;
+   padding-right: 0px;
+
+}

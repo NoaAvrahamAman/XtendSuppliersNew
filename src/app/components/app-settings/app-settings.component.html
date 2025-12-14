@@ -1,0 +1,30 @@
+<div class="app_settings_main">
+  <div soho-tabs [tabsOptions]="tabsOptions" [vertical]="true">
+    <ul soho-tab-list style="padding-top: 0!important">
+      <div class="tab-list-info">
+        <h1>{{content.appSettingsLabel}}</h1>
+      </div>
+      <li soho-tab *ngFor="let tab of tabs" [attr.id]="tab.id" [selected]="tab.id === activeTab"
+          (click)="activateTab(tab.id)">
+        <a soho-tab-title>{{ tab.name }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div soho-tab-panel-container *ngFor="let tab of tabs">
+    <ng-container *ngIf="activeTab === tab.id">
+      <ng-container [ngSwitch]="tab.id">
+        <div *ngSwitchCase="1">
+          <div class="row top-padding" style="text-align: end">Not implemented yet</div>
+        </div>
+        <div *ngSwitchCase="2">
+          <app-language-settings></app-language-settings>
+        </div>
+        <div *ngSwitchDefault>
+          <app-theme-settings></app-theme-settings>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+</div>

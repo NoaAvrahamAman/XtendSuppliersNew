@@ -1,0 +1,17 @@
+<app-accordion></app-accordion>
+
+
+<div class="grid_container" >
+  <div #gridData soho-datagrid="auto" (keydown)="onGridKeyDown($event)">
+  </div>
+  <ul soho-popupmenu id="grid-options_menu">
+        <li *ngFor="let item of content.headerOptionsMenuItems"
+            (click)="handleOptionsClick(item.index, checkOptionDisabled(item.index))"
+            [ngClass]="checkOptionDisabled(item.index) ? null : 'disabled'">
+          <a>
+            <span class="item-text">{{ item.text }}</span>
+            <span class="shortcut-text">{{ item.shortcut }}</span>
+          </a>
+        </li>
+      </ul>
+</div>

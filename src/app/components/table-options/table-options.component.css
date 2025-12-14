@@ -1,0 +1,22 @@
+.grid_container {
+  /*height: calc(100% - 211px);*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  padding: 0 20px 15px 10px;
+}
+
+.grid_container.accordionOpened {
+  height: calc(100% - 211px);
+}
+
+.grid_container.accordionClosed {
+  height: calc(100% - 170px);
+}
+
+
+
+
+
+

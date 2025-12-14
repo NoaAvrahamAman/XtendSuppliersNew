@@ -1,0 +1,8 @@
+<div class="row top-padding" style="text-align: end">
+  <label for="select-language">{{content.languageSettingsLabel}}</label>
+  <select id="select-language" soho-dropdown [(ngModel)]="languageSelected" (ngModelChange)="onSelectionLanguageChange($event)">
+    <option *ngFor="let language of languageOptions" [value]="language" [attr.data-init]="">
+      {{ language }}
+    </option>
+  </select>
+</div>

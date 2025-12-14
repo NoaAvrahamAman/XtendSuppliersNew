@@ -1,0 +1,10 @@
+.vertical{
+  height: calc(100vh - 70px);
+}
+
+.app_settings_main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
